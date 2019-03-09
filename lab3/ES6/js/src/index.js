@@ -1,3 +1,4 @@
+var penis = "penis";
 class Note {
   constructor(title) {
     this.title = title;
@@ -51,7 +52,7 @@ class App {
     // this function should create a new note by using the Note() class
     
     // HINT🤩
-    // note.add();
+       note.add();
     // note.saveToStorage();
     // this.reset();
   }
