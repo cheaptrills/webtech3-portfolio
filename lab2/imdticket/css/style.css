@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+body {
+    font-family:  Arial, Segoe, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background-image: linear-gradient(to left, rgba(255,255,255, .7), rgba(255,255,255, 0.4)), url(../back.png);
+}
+
+.dateborderitems{
+    line-height: 30px;
+}
+h1{
+    font-size: 3em;
+}
+.border{
+    border: 2px solid black;
+}
+.ticket{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.qr{
+    grid-column-start: 4;
+    grid-column-end: 4; 
+    grid-row-start: 1;
+    grid-row-end: 4; 
+}
+
+
+/* Zelfde 2 eigenschappen */
+.title{
+    grid-column-start: 1;
+    grid-column-end: span 3;
+}
+.comment{
+    grid-column-start: 1; /*1 hoog */
+    grid-column-end: span 3; /* 3 breed */
+}
+
+
+@media (max-width:700px){
+
+    .comment{
+        display: none;
+    }
+    
+    .ticket{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .title{
+        background-color: black;
+        color: white;
+    }
+    .qr{
+    grid-column-start: 1;
+    grid-column-end: span 3; 
+    grid-row-start: 2;
+    grid-row-end: 2;
+    }
+    
+}
