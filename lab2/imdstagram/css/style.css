@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 1em;
+    text-align: center;
+}
+
+.logo{
+    width: 100%;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+}
+
+section img{
+    padding: 15px;
+    flex: 1 1 100px;
+}
+
+
+@media (min-width: 700px){
+   .logo{
+       width: auto;
+       order: 2;
+   }
+  
+   .typography, .ui{
+       order: 1;
+   }
+
+   .branding, .graffiti{
+       order: 3;
+   }
+}
