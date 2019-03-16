@@ -26,6 +26,7 @@ class Note {
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
+    document.querySelector(".notes").appendChild(this.element);
   }
   
   saveToStorage(){
