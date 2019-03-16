@@ -1,15 +1,25 @@
-var penis = "penis";
 class Note {
   constructor(title) {
     this.title = title;
-    // HINT🤩 this.element = this.createElement(title);
+    this.element = this.createElement(title);
+    //console.log(this.element);
   }
   
   createElement(title){
-    let newNote = document.createElement('div');
+    let newNote = document.createElement('div');//joris zijn kado
+    //passen den html aan met nieuwe info
+    newNote.innerHTML = `<p>${this.title}</p><br><a href="#" class="card-remove">Remove</a>`;
+    newNote.classList.add("card"); 
     
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-    
+    let myPromise = new Promise ((resolve, reject)=>{
+      setTimeout(()=>{
+        let a = document.getElementsByTagName("a");
+        // "bind" bind functie note dat geselecteerd is, functie werkt enkel op die dan
+        a[i].addEventListener('click', this.remove.bind(newNote));
+        // functie om uit local storage te deleten samen met titel
+        a[i].addEventListener('click', this.deleteNoteFromStorage.bind(title));
+        i++;
+      }, 1000);
     return newNote;
   }
   
