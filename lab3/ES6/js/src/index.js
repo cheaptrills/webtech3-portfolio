@@ -20,6 +20,7 @@ class Note {
         a[i].addEventListener('click', this.deleteNoteFromStorage.bind(title));
         i++;
       }, 1000);
+    });
     return newNote;
   }
   
@@ -60,6 +61,15 @@ class Note {
 
     //console.log("verwijderd");
   } 
+  
+  removestorage() {
+    let notesArray = JSON.parse(localStorage.getItem("notes"));
+    const index = notesArray.indexOf(this);
+    notesArray.splice(index, 1);
+    localStorage.setItem("notes", JSON.stringify(notesArray));
+  }
+
+ 
 }
 
 class App {
