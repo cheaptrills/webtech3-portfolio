@@ -33,11 +33,32 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    let notearray = localStorage.getItem('notes');
+
+    if (notearray != null) {
+
+      notearray.push(this.title);
+      localStorage.setItem('notes', JSON.stringify(notearray));
+    } else {
+      notearray = [];
+      notearray.push(this.title);
+      localStorage.setItem('notes', JSON.stringify(notearray));
+    }
+
   }
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+   let removenote = this;
+
+   removenote.style.transition = "opacity 1s";
+   removenote.style.opacity = 0;
+    setTimeout(() =>{
+      removenote.style.display = "none";
+    }, 1100);
+
+    //console.log("verwijderd");
   } 
 }
 
@@ -50,8 +71,16 @@ class App {
     // pressing the enter key should also work
      this.btnAdd = document.querySelector("#btnAddNote"); 
      this.btnAdd.addEventListener("click", this.createNote.bind(this));
+     this.input = document.querySelector("#textAddNote");
+
+     this.input.addEventListener("keydown", evenement => {
+      if(evenement.keyCode === 13){
+        this.createNote();
+      }
+    });
+
      console.log("test");
-    // this.loadNotesFromStorage();
+     this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
