@@ -61,12 +61,12 @@ class App {
   }
    
   createNote(e){
-    // this function should create a new note by using the Note() class
-    console.log("createnote");
+    let nieuwenote = document.querySelector("#txtAddNote").value;
+    let note = new Note(nieuwenote);
     // HINT🤩
-    // note.add();
-    // note.saveToStorage();
-    //this.reset();
+    note.add();
+    note.saveToStorage();
+    this.reset();
   }
   
   reset(){
