@@ -6,6 +6,7 @@ class Note {
   }
   
   createElement(title){
+    let i = 0;
     let newNote = document.createElement('div');//joris zijn kado
     //passen den html aan met nieuwe info
     newNote.innerHTML = `<p>${this.title}</p><br><a href="#" class="card-remove">Remove</a>`;
@@ -34,14 +35,14 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    let notearray = localStorage.getItem('notes');
+    let notearray = JSON.parse(localStorage.getItem('notes'));
 
-    if (notearray != null) {
-
+    if (notearray === null) {
+      notearray = [];
       notearray.push(this.title);
       localStorage.setItem('notes', JSON.stringify(notearray));
+      
     } else {
-      notearray = [];
       notearray.push(this.title);
       localStorage.setItem('notes', JSON.stringify(notearray));
     }
@@ -63,10 +64,10 @@ class Note {
   } 
   
   removestorage() {
-    let notesArray = JSON.parse(localStorage.getItem("notes"));
-    const index = notesArray.indexOf(this);
-    notesArray.splice(index, 1);
-    localStorage.setItem("notes", JSON.stringify(notesArray));
+    let notearray = JSON.parse(localStorage.getItem("notes"));
+    let click = notearray.indexOf(this);
+    notearray.splice(click, 1);
+    localStorage.setItem("notes", JSON.stringify(notearray));
   }
 
  
@@ -81,12 +82,13 @@ class App {
     // pressing the enter key should also work
      this.btnAdd = document.querySelector("#btnAddNote"); 
      this.btnAdd.addEventListener("click", this.createNote.bind(this));
-     this.input = document.querySelector("#textAddNote");
+     let input = document.querySelector("#textAddNote");
 
-     this.input.addEventListener("keydown", evenement => {
-      if(evenement.keyCode === 13){
+     input.addEventListener("keyup", (e) => {
+      if(e.keyCode == 13){
         this.createNote();
-      }
+      } 
+      e.preventDefault();
     });
 
      console.log("test");
@@ -119,6 +121,7 @@ class App {
   
   reset(){
     // this function should reset the form 
+    document.querySelector("#txtAddNote").value = "";
   }
   
 }
