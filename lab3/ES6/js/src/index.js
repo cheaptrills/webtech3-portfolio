@@ -52,12 +52,12 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-   let removenote = this;
+   
 
-   removenote.style.transition = "opacity 1s";
-   removenote.style.opacity = 0;
+   this.style.transition = "opacity 1s";
+   this.style.opacity = 0;
     setTimeout(() =>{
-      removenote.style.display = "none";
+      this.style.display = "none";
     }, 1100);
 
     //console.log("verwijderd");
