@@ -82,9 +82,11 @@ class App {
     // pressing the enter key should also work
      this.btnAdd = document.querySelector("#btnAddNote"); 
      this.btnAdd.addEventListener("click", this.createNote.bind(this));
-     let input = document.querySelector("#textAddNote");
+     let input = document.querySelector("#txtAddNote");
 
-     input.addEventListener("keyup", (e) => {
+
+
+    input.addEventListener("keyup", e => {
       if(e.keyCode == 13){
         this.createNote();
       } 
