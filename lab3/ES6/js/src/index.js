@@ -16,9 +16,9 @@ class Note {
       setTimeout(()=>{
         let a = document.getElementsByTagName("a");
         // "bind" bind functie note dat geselecteerd is, functie werkt enkel op die dan
-        a[i].addEventListener('click', this.remove.bind(newNote));
+        a.addEventListener('click', this.remove.bind(newNote));
         // functie om uit local storage te deleten samen met titel
-        a[i].addEventListener('click', this.deleteNoteFromStorage.bind(title));
+        a[i].addEventListener('click', this.removestorage.bind(title));
         i++;
       }, 1000);
     });
@@ -103,11 +103,13 @@ class App {
     // something like note.add() in a loop would be nice
     const info = JSON.parse(localStorage.getItem('notes'));
 
-      if (info.length > 0) {
-        info.forEach(notes => {
-          let note = new Note(notes);
-          note.add();
-        });
+      if (info != null) {
+        if (info.length > 0)  {
+          info.forEach(notes => {
+            let note = new Note(notes);
+            note.add();
+          });
+        }
       }
     
   }
