@@ -35,31 +35,32 @@ class Weather{
          this.getNumber(summ);
      });
  }
- /*
+ 
  getNumber(summ){
+    console.log(summ);
     var type = "";
     if (summ.indexOf("Breezy" )!= -1||summ.indexOf("Windy" )!= -1||summ.indexOf("Flurries" )!= -1) {
-        type = "dragon";
+        type = "1";
         document.body.style.backgroundColor = "lightblue";
     }
     else if(summ.indexOf("Drizzle" )!= -1||summ.indexOf("Overcast" )!= -1 ){
-        type = "grass";
+        type = "2";
         document.body.style.backgroundColor = "lemongreen";
     }
     else if(summ.indexOf("Rain" )!= -1){
-        type = "water";
-        document.body.style.backgroundColor = "blue";
+        type = "3";
+        document.body.style.backgroundColor = "lightblue";
     }
     else if(summ.indexOf("sun" )!= -1){
-        type = "fire";
+        type = "4";
         document.body.style.backgroundColor = "orange";
     }
     else if(summ.indexOf("Storm" )!= -1){
-        type = "lightning";
-        document.body.style.backgroundColor = "yellow";
+        type = "5";
+        document.body.style.backgroundColor = "red";
     }
     if(summ.indexOf("Clear")!= -1|| summ.indexOf("Humid")!= -1){
-        type = "Colorless";
+        type = "6";
         document.body.style.backgroundColor = "lightbrown";
     }
     let url = `https://rickandmortyapi.com/api/character/=${number}`;
@@ -74,7 +75,8 @@ class Weather{
                 document.querySelector("body").innerHTML += `<img src="${json.cards[index]}"></img>`;
             }
         });
- }  */
+ } 
+  
  }
  
  let app = new Weather('964a633d1ef98cb97f017557bb3702d1');

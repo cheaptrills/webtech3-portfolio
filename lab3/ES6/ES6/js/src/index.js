@@ -14,13 +14,11 @@ class Note {
     
     let myPromise = new Promise ((resolve, reject)=>{
       setTimeout(()=>{
-        //let a = document.getElementsByTagName("a");
-        let a = document.querySelector(".notes");
-        console.log("addevent");
+        let a = document.getElementsByTagName("a");
         // "bind" bind functie note dat geselecteerd is, functie werkt enkel op die dan
         a.addEventListener('click', this.remove.bind(newNote));
         // functie om uit local storage te deleten samen met titel
-        a.addEventListener('click', this.removestorage.bind(title));
+        //a[i].addEventListener('click', this.removestorage.bind(title));
         i++;
       }, 1000);
     });
