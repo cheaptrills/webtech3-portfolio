@@ -63,7 +63,7 @@ class Weather{
         type = "6";
         document.body.style.backgroundColor = "lightbrown";
     }
-    let url = `https://rickandmortyapi.com/api/character/=${number}`;
+    let url = `https://rickandmortyapi.com/api/character/=${type}`;
         fetch(url)
         .then(Response =>{
             return Response.json();
