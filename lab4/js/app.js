@@ -6,12 +6,11 @@ class Weather{
  
  initialize() {
      this.getMyLocation();
-     //this.getPokemon();
+     this.getCharacter();
  }
  getMyLocation(){
    //console.log("get location"); 
    navigator.geolocation.getCurrentPosition(position => {
-     //console.log("found you");
      //console.log (position);
      let lat = position.coords.latitude;
      let long = position.coords.longitude;
@@ -31,49 +30,22 @@ class Weather{
          let temp = document.createElement("h1");
          temp.innerHTML = `Today is ${json.currently.summary} at your location`;
          document.querySelector("body").appendChild(temp);
-         let summ = json.currently.summary;
-         this.getNumber(summ);
      });
  }
  
- getNumber(summ){
-    console.log(summ);
-    var type = "";
-    if (summ.indexOf("Breezy" )!= -1||summ.indexOf("Windy" )!= -1||summ.indexOf("Flurries" )!= -1) {
-        type = "1";
-        document.body.style.backgroundColor = "lightblue";
-    }
-    else if(summ.indexOf("Drizzle" )!= -1||summ.indexOf("Overcast" )!= -1 ){
-        type = "2";
-        document.body.style.backgroundColor = "lemongreen";
-    }
-    else if(summ.indexOf("Rain" )!= -1){
-        type = "3";
-        document.body.style.backgroundColor = "lightblue";
-    }
-    else if(summ.indexOf("sun" )!= -1){
-        type = "4";
-        document.body.style.backgroundColor = "orange";
-    }
-    else if(summ.indexOf("Storm" )!= -1){
-        type = "5";
-        document.body.style.backgroundColor = "red";
-    }
-    if(summ.indexOf("Clear")!= -1|| summ.indexOf("Humid")!= -1){
-        type = "6";
-        document.body.style.backgroundColor = "lightbrown";
-    }
-    let url = `https://rickandmortyapi.com/api/character/=${type}`;
+ getCharacter(){
+    
+    var characterId = Math.floor((Math.random() * 349) + 1);
+    let url = `https://rickandmortyapi.com/api/character/${characterId}`;
         fetch(url)
+        
         .then(Response =>{
             return Response.json();
+            console.log(json);
         })
         .then(json =>{
-            json.cards = json.cards.map(x => x.imageUrl);
-            console.log(json.cards);
-            for(let index = 0; index < json.cards.length; ++index){
-                document.querySelector("body").innerHTML += `<img src="${json.cards[index]}"></img>`;
-            }
+            console.log(json);
+                document.querySelector("body").innerHTML += `<img src="${json.image}"></img>`;
         });
  } 
   
