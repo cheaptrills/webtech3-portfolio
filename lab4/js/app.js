@@ -41,7 +41,7 @@ class Weather{
         
         .then(Response =>{
             return Response.json();
-            console.log(json);
+            console.log("json");
         })
         .then(json =>{
             console.log(json);
@@ -52,3 +52,4 @@ class Weather{
  }
  
  let app = new Weather('964a633d1ef98cb97f017557bb3702d1');
+
