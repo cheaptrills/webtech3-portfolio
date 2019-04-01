@@ -49,10 +49,10 @@ class Note {
 
   }
   
-  remove(){
+  remove(event){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-   
+   var sibiling = event.target.previousSibling.innerHTML;
 
    this.style.transition = "opacity 1s";
    this.style.opacity = 0;
@@ -61,13 +61,22 @@ class Note {
     }, 1100);
 
     //console.log("verwijderd");
+
+    note.removeFromStorage(sibiling);
   } 
   
-  removestorage() {
-    let notearray = JSON.parse(localStorage.getItem("notes"));
-    let click = notearray.indexOf(this);
-    notearray.splice(click, 1);
-    localStorage.setItem("notes", JSON.stringify(notearray));
+  removeFromStorage(sibiling){
+    // get array from storage data
+    let noteToDelete = JSON.parse(localStorage.getItem('note'));
+
+    for(let i = noteToDelete.length-1; i>=0; i--){
+      // if index of array === as text in p-tag
+      if(noteToDelete[i] === sibiling){
+        //delete found index from array
+        noteToDelete.splice(i, 1);
+      }
+    }
+    localStorage.setItem('note', JSON.stringify(noteToDelete));
   }
 
  
