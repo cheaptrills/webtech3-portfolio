@@ -24,7 +24,6 @@ Bewijs van Flexbox Froggy
 
 [IMDticket](https://codepen.io/vince-van-alphen/pen/jJGWda)
 
-*IMDTICKET MET AFBEELDINGEN OP MIJN PORTFOLIO*
 
 ## Webtech3-lab3
 
